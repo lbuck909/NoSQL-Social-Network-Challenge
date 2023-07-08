@@ -18,7 +18,7 @@ const thoughtsSchema = new Schema(
       default: Date.now,
       get: (createdAtVal) => dateFormat(createdAtVal),
     },
-    reactions: [reactionsSchema],
+    reactions: [reactionSchema],
   },
   {
     toJSON: {
@@ -29,9 +29,9 @@ const thoughtsSchema = new Schema(
   }
 );
 
-const reactionsSchema = new Schema(
+const reactionSchema = new Schema(
   {
-    reactionsId: {
+    reactionId: {
       type: Schema.Types.ObjectId,
       default: () => new Types.ObjectId(),
     },
@@ -39,7 +39,7 @@ const reactionsSchema = new Schema(
       type: String,
       required: true,
     },
-    reactionsData: {
+    reactionData: {
       type: String,
       required: true,
       maxlength: 280,
@@ -59,7 +59,7 @@ const reactionsSchema = new Schema(
 
 
 
-//reactionsCount and virtuals
+//reactionCount and virtuals
 thoughtsSchema.virtual('reactionCount').get(function () {
 return this.reactions.length;
 });
