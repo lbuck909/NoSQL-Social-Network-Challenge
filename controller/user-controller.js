@@ -24,7 +24,7 @@ getAllUsers(req, res) => {
   User.find({})
   .then (userData => res.json(userData))
   .catch(err => res.status(500).json(err));
-},
+}
 
 //update user by id
 updateUserById(req, res) {
@@ -45,7 +45,7 @@ createUser(req, res) {
   User.create(req.body)
   .then(userData => res.json(userData))
   .catch(err => res.status(500).json(err));
-},
+}
 
 //delete user
 deleteUserById(req, res) {
@@ -58,7 +58,7 @@ deleteUserById(req, res) {
   })
   .catch(err => res.status(500).json(err));
 
-},
+}
 //add a friend to the list
 
 addFriend(req, res) {
@@ -67,7 +67,7 @@ addFriend(req, res) {
   
   User.findOneAndUpdate(
     { _id: req.params.id },
-    { $addToSet: { friends: req.params.friendsId } },
+    { $addToSet: { friend: req.params.friendId } },
     { runValidators: true, new: true }
   )
     .then((user) => {
@@ -85,7 +85,7 @@ addFriend(req, res) {
 removeFriend(req, res) {
   User.findOneAndUpdate(
     { _id: req.params.id },
-    { $pull: { friends: req.params.friendsId } },
+    { $pull: { friend: req.params.friendId } },
     { runValidators: true, new: true }
   )
     .then((user) => {
