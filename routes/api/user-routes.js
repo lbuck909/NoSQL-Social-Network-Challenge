@@ -1,16 +1,15 @@
 //needed dependecies & controllers path
 const router = require('express').Router();
+
 const {
+  addFriend,
+  removeFriend,
   getAllUsers,
   getUserById,
   createUser,
-  deleteUser,
   updateUserById,
   deleteUserById,
-  addFriend,
-  removeFriend,
-
-} = require('../../controllers/user-controller.js');
+  } = require('../../controllers/user-controller');
 
 //GET and POST all users
 router.route('/').get(getAllUsers).post(createUser);

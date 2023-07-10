@@ -1,8 +1,8 @@
 const { User } = require('../models');
-// const { ObjectId } = require('mongoose').Types;
+ const { ObjectId } = require('mongoose').Types;
 
 //get one user by id
-const UserController = {
+const userController = {
 getUserById(req, res) {
   User.findOne({ _id: req.params.id })
   .then((user) =>{
@@ -102,4 +102,4 @@ removeFriend(req, res) {
 
 };
 
-module.exports = UserController;
+module.exports = userController;
