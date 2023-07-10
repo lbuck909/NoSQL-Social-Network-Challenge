@@ -81,7 +81,16 @@ async deleteReaction(req, res) {
   } catch (err) {
     res.status(500).json(err);
   }
-}, 
+},
+//delete thought
+async deleteThought(req, res) {
+  try{
+  const thought = await Thought.findByIdAndDelete({ _id:req.params.thoughtId});
+  res.status(200).json(thought);
+} catch (err) {
+  res.status(500).json(err);
+}
+},
 };
 
 module.exports = thoughtController;
