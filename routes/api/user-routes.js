@@ -10,7 +10,7 @@ const {
   addFriend,
   removeFriend,
 
-} = require('../../controller/user-controller');
+} = require('../../controllers/user-controller.js');
 
 //GET and POST all users
 router.route('/').get(getAllUsers).post(createUser);

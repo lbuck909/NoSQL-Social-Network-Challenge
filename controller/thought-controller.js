@@ -44,7 +44,7 @@ async updateThoughtById(req, res) {
 async createThought(req, res) {
   try {
     const thought = await Thought.create(req.body);
-    res.json(course);
+    res.json(thought);
   }catch (err) {
     console.log(err);
     return res.status(500).json(err);
