@@ -40,10 +40,54 @@ async updateThoughtById(req, res) {
     res.status(500).json(err);
   }
 },
-};
-//create thought to one use
-
-
-// add a reaction
+//create thought
+async createThought(req, res) {
+  try {
+    const thought = await Thought.create(req.body);
+    res.json(course);
+  }catch (err) {
+    console.log(err);
+    return res.status(500).json(err);
+  }
+},
+// create a reaction
+async createReaction(req, res) {
+  try {
+    const thought = await Thought.findOneAndUpdate(
+      { _id: req.params.thoughtId },
+      { $addToset: { reactions: req.body } },
+      { runValidators: true, new: true }
+    );
+    if (!thought) {
+      res.status(404).json({ message: "No thought found with this ID 💨!"});
+    }
+    res.json(thought);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+},
 //delete reaction
-//delete thought
+async deleteReaction(req, res) {
+  try{
+    const thought = await Thought.findOneAndDelete(
+      { _id: req.params.thoughtId },
+      { $pull: { reactions: { reactionId: req.params.reactionId}}},
+      { runValidators: true, new: true}
+    );
+    if (!thought) {
+      res.status(404).json({ message: "No thought found with this ID 💨!"});
+    }
+    res.json(thought);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+}, 
+};
+
+module.exports = thoughtController;
+
+
+
+
+
+
