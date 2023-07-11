@@ -12,7 +12,7 @@ const userSchema = new Schema(
       type: String,
       required: true,
       unique: true,
-      match: [/^([\w\-\.]+)@([\w\-\.]+)\.([a-zA-Z]{2,3})$/, "Wrong email entered, please enter a valid email address"]
+      match: [/.+@.+\..+/, "Wrong email entered, please enter a valid email address"]
       }, 
 
     friends:[

@@ -39,6 +39,7 @@ const userController = {
   //create user
 
   createUser(req, res) {
+    console.log(req);
     User.create(req.body)
       .then((userData) => res.json(userData))
       .catch((err) => res.status(500).json(err));
