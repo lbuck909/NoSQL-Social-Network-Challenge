@@ -31,4 +31,4 @@ This GitHub repository showcases the implementation of a social network backend 
 
 
 ## Walkthrough Video
-![](/assets/Module%2018%20NoSQL%20Challenge.mp4)
+[Video](/assets/Module%2018%20NoSQL%20Challenge.mp4)
