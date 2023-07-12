@@ -26,7 +26,9 @@ This GitHub repository showcases the implementation of a social network backend 
 + THEN I am able to successfully create and delete reactions to thoughts and add and remove friends to a user’s friend list
 
 ## Screenshots
+[!Gif](/assets/NoSQL.gif)
 
 
 
 ## Walkthrough Video
+[!video](/assets/Module%2018%20NoSQL%20Challenge.mp4)
