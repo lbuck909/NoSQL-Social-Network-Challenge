@@ -47,8 +47,9 @@ const userController = {
 
   //delete user
   deleteUserById(req, res) {
-    User.findOneAndDelete(req.params.id)
+    User.findOneAndDelete({ _id: req.params.userId})
       .then((userData) => {
+        console.log(userData);
         if (!userData) {
           return res.status(404).json({ message: "User does not exist!🤔" });
         }
@@ -63,7 +64,7 @@ const userController = {
     console.log(req.body);
 
     User.findOneAndUpdate(
-      { _id: req.params.id },
+      { _id: req.params.userId },
       { $addToSet: { friend: req.params.friendId } },
       { runValidators: true, new: true }
     )
